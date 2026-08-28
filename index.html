@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soleva — Step Into Your Style</title>
+  <meta name="description" content="Soleva — modern footwear made for every step.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="logo" href="#">SOLEVA</a>
+    <nav>
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="cart-btn" onclick="openCart()">Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">NEW SEASON · 2026</p>
+        <h1>Step into<br><em>your style.</em></h1>
+        <p class="hero-copy">Clean silhouettes. Everyday comfort. Shoes designed to move with you.</p>
+        <a class="primary" href="#shop">Shop collection</a>
+      </div>
+      <div class="hero-shoe" aria-label="Soleva shoe">
+        <div class="shoe-shape"></div>
+      </div>
+    </section>
+
+    <section id="shop" class="shop">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">THE COLLECTION</p>
+          <h2>Find your pair.</h2>
+        </div>
+        <div class="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="sneakers">Sneakers</button>
+          <button class="filter" data-filter="running">Running</button>
+          <button class="filter" data-filter="casual">Casual</button>
+        </div>
+      </div>
+      <div id="products" class="products"></div>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <p class="eyebrow">WHY SOLEVA</p>
+        <h2>Simple. Sharp.<br>Made to move.</h2>
+      </div>
+      <p>We believe your everyday shoes should look good, feel good and go wherever you do. Soleva brings modern footwear and straightforward shopping together.</p>
+    </section>
+
+    <section id="contact" class="contact">
+      <p class="eyebrow">NEED HELP?</p>
+      <h2>Questions about an order?</h2>
+      <p>Replace the WhatsApp number below with your business number before launch.</p>
+      <a class="secondary" href="https://wa.me/254700000000" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>
+    <strong>SOLEVA</strong>
+    <span>© 2026 Soleva. All rights reserved.</span>
+    <span>Prices shown in USD ($).</span>
+  </footer>
+
+  <div id="overlay" class="overlay" onclick="closeCart(event)">
+    <aside class="cart" onclick="event.stopPropagation()">
+      <div class="cart-head"><h2>Your cart</h2><button onclick="closeCart()">×</button></div>
+      <div id="cartItems"></div>
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">$0.00</strong></div>
+      <button class="primary full" onclick="checkout()">Continue to checkout</button>
+      <p class="small">Card checkout can be connected after your payment provider/merchant account is ready. The site does not store card details.</p>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

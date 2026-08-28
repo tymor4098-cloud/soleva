@@ -42,8 +42,27 @@ function removeItem(id){cart=cart.filter(x=>x.id!==id);updateCart()}
 function openCart(){document.getElementById("overlay").classList.add("open")}
 function closeCart(e){if(!e||e.target===document.getElementById("overlay"))document.getElementById("overlay").classList.remove("open")}
 function checkout(){
-  if(!cart.length){alert("Your cart is empty.");return}
-  alert("Checkout is ready to connect to your chosen card-payment provider. We will add the live payment gateway once your merchant account is approved.");
+  if(!cart.length){
+    alert("Your cart is empty.");
+    return;
+  }
+
+  const popup = new Paystack();
+
+  popup.checkout({
+    key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79,
+    email: 'customer@example.com',
+    amount: 450000,
+    currency: 'KES',
+
+    onSuccess: function(transaction){
+      alert("Payment successful! Reference: " + transaction.reference);
+    },
+
+    onCancel: function(){
+      alert("Payment cancelled.");
+    }
+  });
 }
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));

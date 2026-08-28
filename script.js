@@ -97,7 +97,7 @@ function checkout(){
   const popup = new Paystack();
 
   popup.checkout({
-    key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79,
+   key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79',
     email: 'customer@example.com',
     amount: Math.round(total * 100),
     currency: 'USD',

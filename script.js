@@ -90,7 +90,26 @@ function checkout(){
     return;
   }
 
-  alert("Checkout button is working.");
+  const total = cart.reduce((sum, item) => {
+    return sum + (item.price * item.qty);
+  }, 0);
+
+  const popup = new Paystack();
+
+  popup.checkout({
+    key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79',
+    email: 'customer@example.com',
+    amount: Math.round(total * 100),
+    currency: 'USD',
+
+    onSuccess: function(transaction){
+      alert("Payment successful! Reference: " + transaction.reference);
+    },
+
+    onCancel: function(){
+      alert("Payment cancelled.");
+    }
+  });
 }
 
 document.querySelectorAll(".filter").forEach(b=>{

@@ -50,7 +50,7 @@ function checkout(){
   const popup = new Paystack();
 
   popup.checkout({
-    key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79,
+    key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79',
     email: 'customer@example.com',
     amount: 450000,
     currency: 'KES',
@@ -64,26 +64,12 @@ function checkout(){
     }
   });
 }
+
 document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{
   document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));
-  b.classList.add("active");renderProducts(b.dataset.filter);
+  b.classList.add("active");
+  renderProducts(b.dataset.filter);
 }));
-renderProducts();updateCart();
-function payWithPaystack() {
-    const popup = new Paystack();
 
-    popup.checkout({
-        key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79,
-        email: 'customer@example.com',
-        amount: 450000,
-        currency: 'KES',
-
-        onSuccess: function(transaction) {
-            alert('Payment successful! Reference: ' + transaction.reference);
-        },
-
-        onCancel: function() {
-            alert('Payment cancelled.');
-        }
-    });
-}
+renderProducts();
+updateCart();

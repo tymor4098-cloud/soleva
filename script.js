@@ -38,7 +38,7 @@ function addToCart(id){
 
   if(found){
     found.qty++;
-  } else {
+  }else{
     cart.push({...products.find(p=>p.id===id),qty:1});
   }
 
@@ -90,30 +90,9 @@ function checkout(){
     return;
   }
 
-  const total = cart.reduce((sum, item) => {
-    return sum + (item.price * item.qty);
-  }, 0);
-
-  const popup = new Paystack();
-
-  popup.checkout({
-   key: 'pk_test_30ed6c6e03007391fcf23094d959f976896aba79',
-    email: 'customer@example.com',
-    amount: Math.round(total * 100),
-    currency: 'USD',
-
-    onSuccess: function(transaction){
-      alert(
-        "Payment successful! Reference: " +
-        transaction.reference
-      );
-    },
-
-    onCancel: function(){
-      alert("Payment cancelled.");
-    }
-  });
+  alert("Checkout button is working.");
 }
+
 document.querySelectorAll(".filter").forEach(b=>{
   b.addEventListener("click",()=>{
     document.querySelectorAll(".filter")

@@ -124,6 +124,4 @@ document.querySelectorAll(".filter").forEach(b=>{
 
 renderProducts();
 updateCart();
-function solevaPayTest(){
-  alert("PAYSTACK TEST FUNCTION IS RUNNING");
-}
+
